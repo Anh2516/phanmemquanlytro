@@ -13,50 +13,60 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-
-const pillars = [
-  {
-    icon: BadgeCheck,
-    title: "Thông tin được kiểm duyệt",
-    text: "Mỗi tin đăng được rà soát địa chỉ, giá và hình ảnh, giúp bạn tránh tin ảo và nhận diện phòng phù hợp thật sự.",
-  },
-  {
-    icon: Shield,
-    title: "Minh bạch & an tâm",
-    text: "Giá hiển thị rõ ràng theo tháng, mô tả tiện nghi đầy đủ — bạn biết mình đang xem gì trước khi liên hệ.",
-  },
-  {
-    icon: Headphones,
-    title: "Đồng hành khi cần",
-    text: "Kênh hotline và Zalo hỗ trợ giải đáp thắc mắc, hướng dẫn xem phòng và thủ tục thuê gọn gàng.",
-  },
-];
-
-const stats = [
-  {
-    value: "1000+",
-    label: "Lượt tìm phòng mỗi tháng",
-    hint: "Người dùng chủ động",
-    icon: TrendingUp,
-    accent: "from-teal-400/20 to-emerald-500/10",
-  },
-  {
-    value: "50+",
-    label: "Khu vực được phủ sóng",
-    hint: "TP.HCM & vùng lân cận",
-    icon: MapPinned,
-    accent: "from-cyan-400/20 to-teal-500/10",
-  },
-  {
-    value: "24/7",
-    label: "Kênh liên hệ trực tuyến",
-    hint: "Hotline & tư vấn",
-    icon: Clock,
-    accent: "from-emerald-400/20 to-cyan-500/10",
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function GioiThieuPage() {
+  const { language } = useLanguage();
+  const isEn = language === "en";
+
+  const pillars = [
+    {
+      icon: BadgeCheck,
+      title: isEn ? "Verified information" : "Thông tin được kiểm duyệt",
+      text: isEn
+        ? "Every listing is checked for address, pricing and photos to reduce fake posts."
+        : "Mỗi tin đăng được rà soát địa chỉ, giá và hình ảnh, giúp bạn tránh tin ảo và nhận diện phòng phù hợp thật sự.",
+    },
+    {
+      icon: Shield,
+      title: isEn ? "Transparency & trust" : "Minh bạch & an tâm",
+      text: isEn
+        ? "Monthly pricing and amenities are displayed clearly before contact."
+        : "Giá hiển thị rõ ràng theo tháng, mô tả tiện nghi đầy đủ — bạn biết mình đang xem gì trước khi liên hệ.",
+    },
+    {
+      icon: Headphones,
+      title: isEn ? "Support when needed" : "Đồng hành khi cần",
+      text: isEn
+        ? "Hotline and Zalo support for room viewings and rental steps."
+        : "Kênh hotline và Zalo hỗ trợ giải đáp thắc mắc, hướng dẫn xem phòng và thủ tục thuê gọn gàng.",
+    },
+  ];
+
+  const stats = [
+    {
+      value: "1000+",
+      label: isEn ? "Monthly room searches" : "Lượt tìm phòng mỗi tháng",
+      hint: isEn ? "Active users" : "Người dùng chủ động",
+      icon: TrendingUp,
+      accent: "from-teal-400/20 to-emerald-500/10",
+    },
+    {
+      value: "50+",
+      label: isEn ? "Covered districts" : "Khu vực được phủ sóng",
+      hint: isEn ? "HCMC & nearby" : "TP.HCM & vùng lân cận",
+      icon: MapPinned,
+      accent: "from-cyan-400/20 to-teal-500/10",
+    },
+    {
+      value: "24/7",
+      label: isEn ? "Online support channels" : "Kênh liên hệ trực tuyến",
+      hint: isEn ? "Hotline & consultation" : "Hotline & tư vấn",
+      icon: Clock,
+      accent: "from-emerald-400/20 to-cyan-500/10",
+    },
+  ];
+
   return (
     <div>
       {/* Một khối nền tối liền mạch từ dưới navbar (pt-24 = chừa header cố định) */}
@@ -73,7 +83,7 @@ export function GioiThieuPage() {
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-accent-light backdrop-blur-sm"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Giới thiệu TroHom
+            {isEn ? "About TroHom" : "Giới thiệu TroHom"}
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -81,11 +91,11 @@ export function GioiThieuPage() {
             transition={{ delay: 0.05, duration: 0.5 }}
             className="max-w-3xl font-display text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Nền tảng kết nối{" "}
+            {isEn ? "A trusted platform connecting " : "Nền tảng kết nối "}
             <span className="bg-gradient-to-r from-accent-light via-teal-200 to-cyan-200 bg-clip-text text-transparent">
-              người thuê &amp; chủ trọ
+              {isEn ? "tenants & landlords" : "người thuê & chủ trọ"}
             </span>{" "}
-            uy tín
+            {isEn ? "" : "uy tín"}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -93,8 +103,9 @@ export function GioiThieuPage() {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
           >
-            TroHom hướng tới trải nghiệm tìm phòng trọ rõ ràng, nhanh chóng và
-            đáng tin cậy — từ lúc xem tin đến khi bạn chọn được nơi ở phù hợp.
+            {isEn
+              ? "TroHom delivers a clear, fast and reliable room-search experience."
+              : "TroHom hướng tới trải nghiệm tìm phòng trọ rõ ràng, nhanh chóng và đáng tin cậy — từ lúc xem tin đến khi bạn chọn được nơi ở phù hợp."}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -106,14 +117,14 @@ export function GioiThieuPage() {
               to="/#rooms"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-dark px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
             >
-              Xem phòng đang mở
+              {isEn ? "View available rooms" : "Xem phòng đang mở"}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="tel:19001234"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.07] px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15"
             >
-              Gọi tư vấn 1900 1234
+              {isEn ? "Call support 1900 1234" : "Gọi tư vấn 1900 1234"}
             </a>
           </motion.div>
         </section>
@@ -122,7 +133,7 @@ export function GioiThieuPage() {
         <section className="relative border-t border-white/10 pb-4">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-              Con số nói thay chất lượng
+              {isEn ? "Numbers that reflect quality" : "Con số nói thay chất lượng"}
             </p>
             <div className="grid gap-5 sm:grid-cols-3">
               {stats.map((s, i) => {
@@ -170,11 +181,12 @@ export function GioiThieuPage() {
               <Search className="h-5 w-5" strokeWidth={1.75} />
             </div>
             <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
-              Vì sao chọn TroHom?
+              {isEn ? "Why choose TroHom?" : "Vì sao chọn TroHom?"}
             </h2>
             <p className="mt-3 text-slate-600">
-              Ba trụ cột giúp bạn yên tâm khi tìm phòng — không chỉ là danh sách,
-              mà là trải nghiệm được thiết kế cho người thuê thực tế.
+              {isEn
+                ? "Three pillars that make your room search safer and easier."
+                : "Ba trụ cột giúp bạn yên tâm khi tìm phòng — không chỉ là danh sách, mà là trải nghiệm được thiết kế cho người thuê thực tế."}
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -214,28 +226,31 @@ export function GioiThieuPage() {
               </span>
               <div>
                 <h2 className="font-display text-xl font-bold sm:text-2xl">
-                  Cùng nhau xây cộng đồng thuê phòng lành mạnh
+                  {isEn
+                    ? "Building a healthier rental community together"
+                    : "Cùng nhau xây cộng đồng thuê phòng lành mạnh"}
                 </h2>
                 <p className="mt-2 text-sm text-slate-300 sm:text-base">
-                  Chúng tôi không ngừng cải thiện nội dung hiển thị và công cụ
-                  lọc để bạn tiết kiệm thời gian, tránh rủi ro và chọn được chỗ ở
-                  đúng nhu cầu.
+                  {isEn
+                    ? "We keep improving listing quality and filters to save your time and reduce risk."
+                    : "Chúng tôi không ngừng cải thiện nội dung hiển thị và công cụ lọc để bạn tiết kiệm thời gian, tránh rủi ro và chọn được chỗ ở đúng nhu cầu."}
                 </p>
               </div>
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm">
                 <Building2 className="h-4 w-4 text-accent-light" />
-                Đa dạng khu vực
+                {isEn ? "Wide district coverage" : "Đa dạng khu vực"}
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm">
                 <Shield className="h-4 w-4 text-accent-light" />
-                Cam kết minh bạch
+                {isEn ? "Transparency commitment" : "Cam kết minh bạch"}
               </span>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

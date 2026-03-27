@@ -8,15 +8,21 @@ import { loadRooms } from "../data/roomsApi";
 import type { Room } from "../types/room";
 import { matchRoomSearch } from "../utils/matchRoomSearch";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function HomePage() {
+  const { language } = useLanguage();
+  const isEn = language === "en";
   const [rooms, setRooms] = useState<Room[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [district, setDistrict] = useState("all");
+  const [amenity, setAmenity] = useState("all");
   const [onlyAvailable, setOnlyAvailable] = useState(false);
   const [maxPrice, setMaxPrice] = useState(10_000_000);
+  const [maxSchoolDistanceKm, setMaxSchoolDistanceKm] = useState(10);
+  const [onlyRoommateMatching, setOnlyRoommateMatching] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -46,6 +52,10 @@ export function HomePage() {
     () => Array.from(new Set(rooms.map((r) => r.district))).sort(),
     [rooms]
   );
+  const amenities = useMemo(
+    () => Array.from(new Set(rooms.flatMap((r) => r.amenities))).sort(),
+    [rooms]
+  );
 
   const priceCeiling = useMemo(() => {
     if (rooms.length === 0) return 10_000_000;
@@ -56,11 +66,23 @@ export function HomePage() {
     return rooms.filter((r) => {
       if (!matchRoomSearch(r, search)) return false;
       if (district !== "all" && r.district !== district) return false;
+      if (amenity !== "all" && !r.amenities.includes(amenity)) return false;
       if (onlyAvailable && !r.available) return false;
       if (r.price > maxPrice) return false;
+      if (r.nearestSchoolKm > maxSchoolDistanceKm) return false;
+      if (onlyRoommateMatching && !r.roommateMatching.available) return false;
       return true;
     });
-  }, [rooms, search, district, onlyAvailable, maxPrice]);
+  }, [
+    rooms,
+    search,
+    district,
+    amenity,
+    onlyAvailable,
+    maxPrice,
+    maxSchoolDistanceKm,
+    onlyRoommateMatching,
+  ]);
 
   return (
     <>
@@ -77,14 +99,15 @@ export function HomePage() {
               className="max-w-xl"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-dark">
-                Danh mục
+                {isEn ? "Catalog" : "Danh mục"}
               </p>
               <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Phòng đang cho thuê
+                {isEn ? "Available rooms" : "Phòng đang cho thuê"}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-500 sm:text-base">
-                Khám phá phòng trọ phù hợp — gõ từ khóa để lọc nhanh theo khu vực,
-                tên đường hoặc tiện nghi bạn cần.
+                {isEn
+                  ? "Find your ideal room quickly by district, street, and amenities."
+                  : "Khám phá phòng trọ phù hợp — gõ từ khóa để lọc nhanh theo khu vực, tên đường hoặc tiện nghi bạn cần."}
               </p>
             </motion.div>
             <div className="w-full min-w-0 flex-1 lg:max-w-xl">
@@ -97,11 +120,18 @@ export function HomePage() {
               districts={districts}
               district={district}
               onDistrictChange={setDistrict}
+              amenities={amenities}
+              amenity={amenity}
+              onAmenityChange={setAmenity}
               onlyAvailable={onlyAvailable}
               onOnlyAvailableChange={setOnlyAvailable}
               maxPrice={maxPrice}
               onMaxPriceChange={setMaxPrice}
               priceCeiling={priceCeiling}
+              maxSchoolDistanceKm={maxSchoolDistanceKm}
+              onMaxSchoolDistanceKmChange={setMaxSchoolDistanceKm}
+              onlyRoommateMatching={onlyRoommateMatching}
+              onOnlyRoommateMatchingChange={setOnlyRoommateMatching}
             />
           )}
         </div>
@@ -109,7 +139,7 @@ export function HomePage() {
         {loading && (
           <div className="flex min-h-[200px] items-center justify-center gap-2 text-slate-500">
             <Loader2 className="h-6 w-6 animate-spin text-accent" />
-            Đang tải danh sách…
+            {isEn ? "Loading rooms..." : "Đang tải danh sách…"}
           </div>
         )}
 
@@ -126,23 +156,25 @@ export function HomePage() {
                 {search.trim() ? (
                   filtered.length === 0 ? (
                     <>
-                      Không có kết quả cho &quot;{search.trim()}&quot;
+                      {isEn
+                        ? `No results for "${search.trim()}"`
+                        : `Không có kết quả cho "${search.trim()}"`}
                     </>
                   ) : (
                     <>
-                      Tìm thấy{" "}
+                      {isEn ? "Found " : "Tìm thấy "}
                       <span className="font-semibold text-slate-800">
                         {filtered.length}
-                      </span>{" "}
-                      phòng phù hợp
+                      </span>
+                      {isEn ? " matching rooms" : " phòng phù hợp"}
                     </>
                   )
                 ) : (
                   <>
                     <span className="font-semibold text-slate-800">
                       {filtered.length}
-                    </span>{" "}
-                    phòng đang mở
+                    </span>
+                    {isEn ? " open rooms" : " phòng đang mở"}
                   </>
                 )}
               </p>
@@ -150,16 +182,17 @@ export function HomePage() {
 
             {rooms.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 px-6 py-16 text-center text-slate-600">
-                Hiện chưa có tin phòng. Vui lòng quay lại sau.
+                {isEn ? "No room listings yet. Please come back later." : "Hiện chưa có tin phòng. Vui lòng quay lại sau."}
               </div>
             ) : filtered.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 px-6 py-16 text-center">
                 <p className="font-medium text-slate-700">
-                  Chưa có phòng nào khớp tìm kiếm
+                  {isEn ? "No matching rooms found" : "Chưa có phòng nào khớp tìm kiếm"}
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
-                  Thử đổi từ khóa, nới giá tối đa, chọn &quot;Tất cả khu vực&quot;
-                  hoặc bỏ chọn &quot;Chỉ phòng còn trống&quot;.
+                  {isEn
+                    ? 'Try another keyword, increase max price, choose "All districts", or uncheck "Available rooms only".'
+                    : 'Thử đổi từ khóa, nới giá tối đa, chọn "Tất cả khu vực" hoặc bỏ chọn "Chỉ phòng còn trống".'}
                 </p>
               </div>
             ) : (

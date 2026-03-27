@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Bath, ChevronRight, MapPin, Maximize2, Tag } from "lucide-react";
+import {
+  Bath,
+  ChevronRight,
+  MapPin,
+  Maximize2,
+  ShieldCheck,
+  Tag,
+  Users,
+} from "lucide-react";
 import type { Room } from "../types/room";
 import clsx from "clsx";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const MotionLink = motion.create(Link);
 
@@ -19,6 +28,8 @@ const formatMoney = (n: number) =>
   }).format(n);
 
 export function RoomCard({ room, index }: Props) {
+  const { language } = useLanguage();
+  const isEn = language === "en";
   const cover = room.images[0];
 
   return (
@@ -50,7 +61,7 @@ export function RoomCard({ room, index }: Props) {
               : "bg-slate-900/80 text-white"
           )}
         >
-          {room.available ? "Còn trống" : "Đã thuê"}
+          {room.available ? (isEn ? "Available" : "Còn trống") : isEn ? "Rented" : "Đã thuê"}
         </span>
       </div>
 
@@ -64,6 +75,20 @@ export function RoomCard({ room, index }: Props) {
           <MapPin className="h-4 w-4 shrink-0 text-accent" />
           <span className="line-clamp-1">{room.district}</span>
         </p>
+        <div className="mb-3 flex flex-wrap gap-2 text-xs">
+          {room.verification.landlordVerified && room.verification.postVerified && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-700">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              {isEn ? "Verified" : "Đã xác thực"}
+            </span>
+          )}
+          {room.roommateMatching.available && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-indigo-100 px-2 py-1 font-medium text-indigo-700">
+              <Users className="h-3.5 w-3.5" />
+              {isEn ? "Roommate support" : "Hỗ trợ ở ghép"}
+            </span>
+          )}
+        </div>
         <div className="mb-4 flex flex-wrap gap-3 text-xs text-slate-600">
           <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2 py-1">
             <Maximize2 className="h-3.5 w-3.5" />
@@ -71,7 +96,13 @@ export function RoomCard({ room, index }: Props) {
           </span>
           <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2 py-1">
             <Bath className="h-3.5 w-3.5" />
-            Tầng {room.floor}
+            {isEn ? `Floor ${room.floor}` : `Tầng ${room.floor}`}
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-lg bg-slate-100 px-2 py-1">
+            <MapPin className="h-3.5 w-3.5" />
+            {isEn
+              ? `${room.nearestSchoolKm.toFixed(1)} km to school`
+              : `${room.nearestSchoolKm.toFixed(1)} km tới trường`}
           </span>
         </div>
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-slate-100 pt-4">
@@ -80,10 +111,10 @@ export function RoomCard({ room, index }: Props) {
             <span className="font-display text-xl font-bold text-accent-dark">
               {formatMoney(room.price)}
             </span>
-            <span className="text-xs text-slate-400">/tháng</span>
+            <span className="text-xs text-slate-400">{isEn ? "/month" : "/tháng"}</span>
           </p>
           <span className="inline-flex items-center gap-1 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition group-hover:bg-accent-dark">
-            Chi tiết
+            {isEn ? "Details" : "Chi tiết"}
             <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
           </span>
         </div>

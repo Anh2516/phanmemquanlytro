@@ -1,29 +1,38 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, Headphones, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const highlights = [
-  {
-    icon: BadgeCheck,
-    eyebrow: "Uy tín",
-    title: "Phòng tin cậy",
-    desc: "Thông tin được kiểm duyệt, minh bạch giá và địa chỉ trước khi bạn liên hệ.",
-  },
-  {
-    icon: ShieldCheck,
-    eyebrow: "An tâm",
-    title: "Giao dịch rõ ràng",
-    desc: "Quy trình thuê minh bạch, bảo vệ quyền lợi người thuê và chủ nhà.",
-  },
-  {
-    icon: Headphones,
-    eyebrow: "Đồng hành",
-    title: "Hỗ trợ tận tâm",
-    desc: "Hotline & tư vấn trực tuyến — sẵn sàng khi bạn cần xem phòng hoặc thắc mắc.",
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function Hero() {
+  const { language } = useLanguage();
+  const isEn = language === "en";
+  const highlights = [
+    {
+      icon: BadgeCheck,
+      eyebrow: isEn ? "Trusted" : "Uy tín",
+      title: isEn ? "Reliable rooms" : "Phòng tin cậy",
+      desc: isEn
+        ? "Listings are reviewed with transparent pricing and addresses before you contact."
+        : "Thông tin được kiểm duyệt, minh bạch giá và địa chỉ trước khi bạn liên hệ.",
+    },
+    {
+      icon: ShieldCheck,
+      eyebrow: isEn ? "Safe" : "An tâm",
+      title: isEn ? "Clear process" : "Giao dịch rõ ràng",
+      desc: isEn
+        ? "A clear rental flow that protects both tenants and landlords."
+        : "Quy trình thuê minh bạch, bảo vệ quyền lợi người thuê và chủ nhà.",
+    },
+    {
+      icon: Headphones,
+      eyebrow: isEn ? "Support" : "Đồng hành",
+      title: isEn ? "Helpful support" : "Hỗ trợ tận tâm",
+      desc: isEn
+        ? "Hotline and online support whenever you need help."
+        : "Hotline & tư vấn trực tuyến — sẵn sàng khi bạn cần xem phòng hoặc thắc mắc.",
+    },
+  ];
+
   return (
     <section
       id="top"
@@ -47,17 +56,18 @@ export function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-accent-light backdrop-blur"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Phòng trọ chọn lọc — cập nhật mỗi tuần
+            {isEn ? "Curated rooms — updated weekly" : "Phòng trọ chọn lọc — cập nhật mỗi tuần"}
           </motion.div>
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Tìm phòng trọ{" "}
+            {isEn ? "Find rooms " : "Tìm phòng trọ "}
             <span className="bg-gradient-to-r from-accent-light to-teal-200 bg-clip-text text-transparent">
-              nhanh &amp; rõ ràng
+              {isEn ? "fast & clear" : "nhanh & rõ ràng"}
             </span>
           </h1>
           <p className="mt-5 text-lg text-slate-400 sm:text-xl">
-            Kết nối bạn với phòng trọ phù hợp — lọc theo khu vực và ngân sách,
-            thông tin rõ ràng để bạn an tâm lựa chọn.
+            {isEn
+              ? "Connect with the right room — filter by area and budget with transparent information."
+              : "Kết nối bạn với phòng trọ phù hợp — lọc theo khu vực và ngân sách, thông tin rõ ràng để bạn an tâm lựa chọn."}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <motion.a
@@ -66,14 +76,14 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-dark px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition"
             >
-              Xem phòng đang mở
+              {isEn ? "View available rooms" : "Xem phòng đang mở"}
               <ArrowRight className="h-4 w-4" />
             </motion.a>
             <Link
               to="/gioi-thieu"
               className="text-sm font-semibold text-slate-300 underline-offset-4 transition hover:text-white hover:underline"
             >
-              Tìm hiểu về dịch vụ
+              {isEn ? "Learn about service" : "Tìm hiểu về dịch vụ"}
             </Link>
           </div>
         </motion.div>

@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Home, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function Header() {
+  const { language, toggleLanguage } = useLanguage();
+  const isEn = language === "en";
+
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
@@ -21,19 +25,29 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-slate-300 sm:flex">
           <Link to="/#rooms" className="transition hover:text-white">
-            Danh sách phòng
+            {isEn ? "Room list" : "Danh sách phòng"}
           </Link>
           <Link to="/gioi-thieu" className="transition hover:text-white">
-            Về dịch vụ
+            {isEn ? "About service" : "Về dịch vụ"}
           </Link>
         </nav>
-        <a
-          href="tel:19001234"
-          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
-        >
-          <Phone className="h-4 w-4 text-accent-light" />
-          <span className="hidden sm:inline">1900 1234</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/10"
+            aria-label={isEn ? "Switch to Vietnamese" : "Switch to English"}
+          >
+            {isEn ? "VI" : "EN"}
+          </button>
+          <a
+            href="tel:19001234"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
+          >
+            <Phone className="h-4 w-4 text-accent-light" />
+            <span className="hidden sm:inline">1900 1234</span>
+          </a>
+        </div>
       </div>
     </motion.header>
   );

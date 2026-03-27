@@ -20,6 +20,12 @@ export function matchRoomSearch(room: Room, rawQuery: string): boolean {
       room.description,
       room.id,
       String(room.price),
+      String(room.nearestSchoolKm),
+      room.verification.landlordVerified ? "chủ trọ đã xác thực" : "chủ trọ chưa xác thực",
+      room.verification.postVerified ? "tin đã xác thực" : "tin chưa xác thực",
+      ...room.rentalConditions,
+      ...room.supportLanguages,
+      ...room.legalGuidance,
       ...room.amenities,
     ].join(" ")
   );
