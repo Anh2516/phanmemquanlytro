@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -6,6 +7,8 @@ import {
   Building2,
   Clock,
   Headphones,
+  Loader2,
+  Mail,
   MapPinned,
   Search,
   Shield,
@@ -15,9 +18,76 @@ import {
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
+const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_FORM_ID
+  ? `https://formspree.io/f/${process.env.REACT_APP_FORMSPREE_FORM_ID}`
+  : "";
+
 export function GioiThieuPage() {
   const { language } = useLanguage();
   const isEn = language === "en";
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">(
+    "idle"
+  );
+  const [formMessage, setFormMessage] = useState<string | null>(null);
+
+  async function handleContactSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormMessage(null);
+
+    if (!FORMSPREE_ENDPOINT) {
+      setFormStatus("error");
+      setFormMessage(
+        isEn
+          ? "Missing REACT_APP_FORMSPREE_FORM_ID in .env — add your Formspree form ID and restart the dev server."
+          : "Thiếu REACT_APP_FORMSPREE_FORM_ID trong file .env — thêm ID form Formspree rồi khởi động lại dev server."
+      );
+      return;
+    }
+
+    const trimmedName = name.trim();
+    const trimmedPhone = phone.trim();
+    if (!trimmedName || !trimmedPhone) {
+      setFormStatus("error");
+      setFormMessage(
+        isEn ? "Please enter your name and phone number." : "Vui lòng nhập tên và số điện thoại."
+      );
+      return;
+    }
+
+    setFormStatus("submitting");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: trimmedName,
+          phone: trimmedPhone,
+          _subject: isEn
+            ? "[TroHom] Service inquiry"
+            : "[TroHom] Liên hệ từ trang dịch vụ",
+        }),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? `HTTP ${res.status}`);
+      }
+      setFormStatus("success");
+      setName("");
+      setPhone("");
+      setFormMessage(
+        isEn
+          ? "Thank you — we will contact you soon."
+          : "Cảm ơn bạn — chúng tôi sẽ liên hệ lại sớm."
+      );
+    } catch {
+      setFormStatus("error");
+      setFormMessage(
+        isEn ? "Could not send. Please try again later." : "Gửi không thành công. Vui lòng thử lại sau."
+      );
+    }
+  }
 
   const pillars = [
     {
@@ -248,6 +318,93 @@ export function GioiThieuPage() {
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-slate-50 py-16">
+        <div className="mx-auto max-w-lg px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
+          >
+            <div className="mb-6 flex justify-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent-dark">
+                <Mail className="h-6 w-6" strokeWidth={1.75} />
+              </span>
+            </div>
+            <h2 className="text-center font-display text-xl font-bold text-slate-900 sm:text-2xl">
+              {isEn ? "Leave your contact" : "Để lại thông tin liên hệ"}
+            </h2>
+            <p className="mt-2 text-center text-sm text-slate-600">
+              {isEn
+                ? "We will reach out to you about TroHom services."
+                : "Chúng tôi sẽ liên hệ tư vấn về dịch vụ TroHom."}
+            </p>
+            <form onSubmit={handleContactSubmit} className="mt-8 space-y-5" noValidate>
+              <div>
+                <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-slate-700">
+                  {isEn ? "Full name" : "Họ và tên"}
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={formStatus === "submitting"}
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-accent/0 transition focus:border-accent focus:ring-2 focus:ring-accent/25 disabled:opacity-60"
+                  placeholder={isEn ? "Nguyen Van A" : "Nguyễn Văn A"}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-slate-700">
+                  {isEn ? "Phone number" : "Số điện thoại"}
+                </label>
+                <input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  disabled={formStatus === "submitting"}
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-accent/0 transition focus:border-accent focus:ring-2 focus:ring-accent/25 disabled:opacity-60"
+                  placeholder={isEn ? "0901 234 567" : "0901 234 567"}
+                />
+              </div>
+              {formMessage && (
+                <p
+                  role="alert"
+                  className={`text-center text-sm ${
+                    formStatus === "success" ? "text-emerald-600" : "text-red-600"
+                  }`}
+                >
+                  {formMessage}
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={formStatus === "submitting"}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-dark py-3.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {formStatus === "submitting" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                    {isEn ? "Sending…" : "Đang gửi…"}
+                  </>
+                ) : isEn ? (
+                  "Send"
+                ) : (
+                  "Gửi thông tin"
+                )}
+              </button>
+            </form>
+          </motion.div>
         </div>
       </section>
 
