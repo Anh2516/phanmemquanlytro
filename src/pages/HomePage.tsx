@@ -49,13 +49,27 @@ export function HomePage() {
   }, []);
 
   const districts = useMemo(
-    () => Array.from(new Set(rooms.map((r) => r.district))).sort(),
+    () =>
+      Array.from(new Set(rooms.map((r) => r.district).filter((d) => d.trim() !== ""))).sort(),
     [rooms]
   );
   const amenities = useMemo(
-    () => Array.from(new Set(rooms.flatMap((r) => r.amenities))).sort(),
+    () =>
+      Array.from(new Set(rooms.flatMap((r) => r.amenities).filter((a) => a.trim() !== ""))).sort(),
     [rooms]
   );
+
+  useEffect(() => {
+    if (district !== "all" && !districts.includes(district)) {
+      setDistrict("all");
+    }
+  }, [districts, district]);
+
+  useEffect(() => {
+    if (amenity !== "all" && !amenities.includes(amenity)) {
+      setAmenity("all");
+    }
+  }, [amenities, amenity]);
 
   const priceCeiling = useMemo(() => {
     if (rooms.length === 0) return 10_000_000;

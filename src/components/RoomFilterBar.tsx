@@ -42,6 +42,13 @@ export function RoomFilterBar({
 }: Props) {
   const { language } = useLanguage();
   const isEn = language === "en";
+  /** Radix Select.Item không cho value="" */
+  const districtOptions = districts.filter((d) => d.trim() !== "");
+  const amenityOptions = amenities.filter((a) => a.trim() !== "");
+  const districtValue =
+    district === "all" || districtOptions.includes(district) ? district : "all";
+  const amenityValue =
+    amenity === "all" || amenityOptions.includes(amenity) ? amenity : "all";
 
   return (
     <motion.div
@@ -60,7 +67,7 @@ export function RoomFilterBar({
           <label className="mb-1.5 block text-xs font-medium text-slate-600">
             {isEn ? "District" : "Khu vực"}
           </label>
-          <Select.Root value={district} onValueChange={onDistrictChange}>
+          <Select.Root value={districtValue} onValueChange={onDistrictChange}>
             <Select.Trigger
               className={clsx(
                 "flex h-11 w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3 text-left text-sm text-slate-800 shadow-sm",
@@ -81,7 +88,7 @@ export function RoomFilterBar({
               >
                 <Select.Viewport className="p-1">
                   <SelectItem value="all">{isEn ? "All districts" : "Tất cả khu vực"}</SelectItem>
-                  {districts.map((d) => (
+                  {districtOptions.map((d) => (
                     <SelectItem key={d} value={d}>
                       {d}
                     </SelectItem>
@@ -96,7 +103,7 @@ export function RoomFilterBar({
           <label className="mb-1.5 block text-xs font-medium text-slate-600">
             {isEn ? "Amenities" : "Tiện ích"}
           </label>
-          <Select.Root value={amenity} onValueChange={onAmenityChange}>
+          <Select.Root value={amenityValue} onValueChange={onAmenityChange}>
             <Select.Trigger
               className={clsx(
                 "flex h-11 w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3 text-left text-sm text-slate-800 shadow-sm",
@@ -117,7 +124,7 @@ export function RoomFilterBar({
               >
                 <Select.Viewport className="p-1">
                   <SelectItem value="all">{isEn ? "All amenities" : "Tất cả tiện ích"}</SelectItem>
-                  {amenities.map((a) => (
+                  {amenityOptions.map((a) => (
                     <SelectItem key={a} value={a}>
                       {a}
                     </SelectItem>

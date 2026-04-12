@@ -32,13 +32,15 @@ const formatMoney = (n: number) =>
     maximumFractionDigits: 0,
   }).format(n);
 
-function mapsEmbedUrl(address: string) {
-  const q = encodeURIComponent(`${address}, Việt Nam`);
+function mapsEmbedUrl(address: string, mapSearchQuery?: string) {
+  const center = (mapSearchQuery?.trim() || address).trim() || address;
+  const q = encodeURIComponent(`${center}, Việt Nam`);
   return `https://www.google.com/maps?q=${q}&output=embed&hl=vi`;
 }
 
-function mapsOpenUrl(address: string) {
-  const q = encodeURIComponent(`${address}, Việt Nam`);
+function mapsOpenUrl(address: string, mapSearchQuery?: string) {
+  const center = (mapSearchQuery?.trim() || address).trim() || address;
+  const q = encodeURIComponent(`${center}, Việt Nam`);
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
 
@@ -135,7 +137,9 @@ export function RoomDetailPage() {
   const phoneClean = room.contact.phone.replace(/\s/g, "");
   const zalo = room.contact.zalo?.replace(/\s/g, "");
   const avgRating =
-    room.reviews.reduce((sum, rv) => sum + rv.rating, 0) / room.reviews.length;
+    room.reviews.length > 0
+      ? room.reviews.reduce((sum, rv) => sum + rv.rating, 0) / room.reviews.length
+      : 0;
 
   return (
     <motion.div
@@ -317,18 +321,24 @@ export function RoomDetailPage() {
               <p className="mt-2 text-sm text-slate-600">
                 {isEn ? "Average rating: " : "Điểm trung bình: "}
                 <span className="font-semibold text-slate-900">
-                  {avgRating.toFixed(1)}/5
+                  {room.reviews.length > 0 ? `${avgRating.toFixed(1)}/5` : isEn ? "—" : "Chưa có"}
                 </span>
               </p>
               <div className="mt-4 space-y-3">
-                {room.reviews.map((rv) => (
-                  <article key={rv.id} className="rounded-xl border border-slate-200 p-4">
-                    <p className="text-sm font-semibold text-slate-800">
-                      {rv.author} · {rv.rating}/5
-                    </p>
-                    <p className="mt-1 text-sm text-slate-600">{rv.comment}</p>
-                  </article>
-                ))}
+                {room.reviews.length === 0 ? (
+                  <p className="text-sm text-slate-500">
+                    {isEn ? "No reviews yet." : "Chưa có đánh giá."}
+                  </p>
+                ) : (
+                  room.reviews.map((rv) => (
+                    <article key={rv.id} className="rounded-xl border border-slate-200 p-4">
+                      <p className="text-sm font-semibold text-slate-800">
+                        {rv.author} · {rv.rating}/5
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600">{rv.comment}</p>
+                    </article>
+                  ))
+                )}
               </div>
             </section>
 
@@ -338,14 +348,18 @@ export function RoomDetailPage() {
                 {isEn ? "Location on map" : "Vị trí trên bản đồ"}
               </h3>
               <p className="mt-2 text-sm text-slate-500">
-                {isEn
-                  ? `${room.address} — open in full screen with Google Maps.`
-                  : `${room.address} — bạn có thể mở toàn màn hình trong Google Maps.`}
+                {room.mapSearchQuery?.trim()
+                  ? isEn
+                    ? `${room.address} — map pin: ${room.mapSearchQuery.trim()}.`
+                    : `${room.address} — ghim bản đồ: ${room.mapSearchQuery.trim()}.`
+                  : isEn
+                    ? `${room.address} — open in full screen with Google Maps.`
+                    : `${room.address} — bạn có thể mở toàn màn hình trong Google Maps.`}
               </p>
               <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner">
                 <iframe
                   title={isEn ? "Map" : "Bản đồ"}
-                  src={mapsEmbedUrl(room.address)}
+                  src={mapsEmbedUrl(room.address, room.mapSearchQuery)}
                   className="aspect-[16/10] w-full border-0 sm:h-[380px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -353,7 +367,7 @@ export function RoomDetailPage() {
                 />
               </div>
               <a
-                href={mapsOpenUrl(room.address)}
+                href={mapsOpenUrl(room.address, room.mapSearchQuery)}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-dark hover:underline"
