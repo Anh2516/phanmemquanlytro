@@ -4,7 +4,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-001",
     "name": "Nguyễn Trần Quân",
-    "avatar": "https://35express.org/wp-content/uploads/2021/10/su-nghiep-noi-bat-cua-streamer-bop-bop-35express.jpg",
+    "avatar": "https://lh3.googleusercontent.com/rd-d/ALs6j_HRPRt7pEe_04-zv_1_Db_ZYCpzE5FL6gxErqQeaGyzAcISFGB6UmT06jj3aYhwMWLAn7OBnPKxlYcCSG_2dKL8C-bmoTS0aTjBnsyVYwFJoOZXKglK3WMZeFWID42I8IZtJA-CIuhwPrdwyAaJlo5KhXP5A1rdIVvsW7ilyJQbs4bH3pmYRGHBaMdk0JPIDjhUTB0UK6I2xdsde91nkDefFxd7mpNV-HkDx7w4ls842R1ruIxlF1ldbM9VKhv41uk3wVK2xlia8LswiUPe_Tng3rhyvmTS_efmg-P5OHrpfXTma-45I_ZO-fgxgFBmrOz_1WyT8BTw7pxvk7qtPjQzHFDOFCOI3hWslqXMoUg6vk7tkiMBU-sWuq8hJDhZ_Udm4GOL_dsWgSMFgNgNazpGtC5HsvxFi7CdugChWa9md8NYT8hqTVdYFuI6j5kK8nG8GxNE0wRh-l_AZTo_0R3xGpizr-UHGDa6iU16eRlbrh1cX462jLAWAhFoN1KGD0r3rHiLf0e5l3fIzMGC0zpRyG7cm7EXrnoDbFP7LgKQI8ZbURj_6wBvYkNaysmqO3_Pn0ZHeOTRmMm5AwiWXe7HNm5GoCtfM3MmzHDIRzwWpfVKgPXVWCIWS0m75yCNKe33Epy-hZk4YjHI2GHFzpFKMRKZGA5QOGr1vkdjSVnQpRz7j2pvmYEjynDfq4hJNMM_hDXhURsXsZHe3WNoqPMt6dWBsSmoPuCqT3KkuNip6wk8Y3wkODMyTRWlch2xHHDwILkvA2No_8nuotq6R_SwgRX1w6jGFma0Y_hgbdAhHaRzboORpRcU1UxRFqddkj1hZmaXEYZzhEPpIe44cpdnJHvsyneAJRNuTZD1CbUulUfTBg6kjmTt4SQoo2BZ3ZhNslcmQjcLGD8q-a79hOYxeAFohsAOwCitJq55hxmhAnmgPHx0GXuLQgZolxEgPa_PiNAkw8FStkBSmSKIA2Jn2rxMtIYZC9zpgQ4NK1geLabS4ezrQcd9h9xXcyl9yXd5gvUyj2AGyZctMiBCcJMjSNPhq1-gSskDsHybVZOTgBFdAyl61WRd6CvILx077r-Dl6GpZXwtkIg04g4JNIbm4MLmDaUvyPfPo5G7forixw3clMWCLg=w1920-h1032?auditContext=prefetch",
     "phone": "0903 111 222",
     "zalo": "0903111222",
     "email": "bopbop@trohom.vn",
@@ -19,7 +19,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-002",
     "name": "Trần Chí Thanh",
-    "avatar": "https://i.ytimg.com/vi/RPBHrQx4N2w/hqdefault.jpg",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0902 345 678",
     "zalo": "0902345678",
     "email": "binh.tran@trohom.vn",
@@ -33,7 +33,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-003",
     "name": "Trịnh Minh Phúc ",
-    "avatar": "https://i.ytimg.com/vi/sPMm-2dyXgo/oar2.jpg?sqp=-oaymwEYCJwEENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLAAXT-OyWV9oXF7o3wAingdN8SU0A",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0912 777 999",
     "zalo": "0912777999",
     "email": "enzo.tai@trohom.vn",
@@ -48,7 +48,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-004",
     "name": "Vũ Hải Đăng",
-    "avatar": "https://cdn-img.thethao247.vn/origin_1920x0/upload/caodat/2020/11/08/bang-193105-1.jpg",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0933 456 789",
     "zalo": "0933456789",
     "email": "bang.lai@trohom.vn",
@@ -63,7 +63,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-005",
     "name": "Chu Minh Anh",
-    "avatar": "https://nguoinoitieng.tv/images/nnt/100/0/be2s.jpg",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0903 111 222",
     "zalo": "0903111222",
     "email": "adc@trohom.vn",
@@ -78,7 +78,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-006",
     "name": "Trần Trung Quân",
-    "avatar": "https://i.ytimg.com/vi/UjlRbdf2erw/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFggVShlMA8=&rs=AOn4CLAoRprS5GK5R7UOeaf4zIzze9l69Q",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0906 888 000",
     "zalo": "0906888000",
     "email": "mcuong@trohom.vn",
@@ -92,7 +92,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-007",
     "name": "Nguyễn Xuân Phúc",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0866879389",
     "zalo": "0866879389",
     "email": "nxp123@gmail.com",
@@ -106,7 +106,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-008",
     "name": "Đinh La Sơn",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0359379998",
     "zalo": "0359379998",
     "email": "dinhlason5797@gmail.com",
@@ -120,7 +120,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-009",
     "name": "Phạm Minh Khôi",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0288345678",
     "zalo": "0288345678",
     "email": "pmkhoi234@gmail.com",
@@ -134,7 +134,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-010",
     "name": "Nguyễn Trọng Phú",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0325556987",
     "zalo": "0125647778",
     "email": "ntp@gmail.com",
@@ -148,7 +148,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-011",
     "name": "Trịnh Xuân Thành ",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0984508345",
     "zalo": "0984508345",
     "email": "trinhxthanh1997@gmail.com",
@@ -162,7 +162,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-012",
     "name": "Đinh Vĩnh Phúc",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0984759798",
     "zalo": "0984759798",
     "email": "dinhvinhphuc4697@gmail.com",
@@ -176,7 +176,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-013",
     "name": "Trần Quang Minh",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0759897776",
     "zalo": "0759897776",
     "email": "tqm@gmail.com",
@@ -190,7 +190,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-014",
     "name": "Nguyễn Hoàng Giang",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0786564345",
     "zalo": "0786564345",
     "email": "nghoanggiang@gmail.com",
@@ -204,7 +204,7 @@ export const landlordsData: Landlord[] = [
   {
     "id": "ld-015",
     "name": "Nguyễn Thị Thu Hòa",
-    "avatar": "",
+    "avatar": "https://lh3.google.com/u/0/d/1qsUq9lz4ie7lcMQBZVOQZCnpP_EsZklu=w1920-h1032-iv1?auditContext=prefetch",
     "phone": "0986758897",
     "zalo": "0986758897",
     "email": "ntthoa@gmail.com",
