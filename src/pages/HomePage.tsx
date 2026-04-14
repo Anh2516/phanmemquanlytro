@@ -10,6 +10,21 @@ import { matchRoomSearch } from "../utils/matchRoomSearch";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
+function normalizeDistrictName(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function hasVietnameseDiacritics(value: string) {
+  return normalizeDistrictName(value) !== value.toLowerCase().trim().replace(/\s+/g, " ");
+}
+
 export function HomePage() {
   const { language } = useLanguage();
   const isEn = language === "en";
@@ -48,11 +63,29 @@ export function HomePage() {
     };
   }, []);
 
-  const districts = useMemo(
-    () =>
-      Array.from(new Set(rooms.map((r) => r.district).filter((d) => d.trim() !== ""))).sort(),
-    [rooms]
-  );
+  const districts = useMemo(() => {
+    const districtMap = new Map<string, string>();
+
+    for (const room of rooms) {
+      const rawDistrict = room.district.trim();
+      if (!rawDistrict) continue;
+
+      const normalized = normalizeDistrictName(rawDistrict);
+      const current = districtMap.get(normalized);
+
+      if (!current) {
+        districtMap.set(normalized, rawDistrict);
+        continue;
+      }
+
+      // Prefer accented Vietnamese label when duplicated in unaccented form.
+      if (hasVietnameseDiacritics(rawDistrict) && !hasVietnameseDiacritics(current)) {
+        districtMap.set(normalized, rawDistrict);
+      }
+    }
+
+    return Array.from(districtMap.values()).sort((a, b) => a.localeCompare(b, "vi"));
+  }, [rooms]);
   const amenities = useMemo(
     () =>
       Array.from(new Set(rooms.flatMap((r) => r.amenities).filter((a) => a.trim() !== ""))).sort(),
@@ -79,7 +112,12 @@ export function HomePage() {
   const filtered = useMemo(() => {
     return rooms.filter((r) => {
       if (!matchRoomSearch(r, search)) return false;
-      if (district !== "all" && r.district !== district) return false;
+      if (
+        district !== "all" &&
+        normalizeDistrictName(r.district) !== normalizeDistrictName(district)
+      ) {
+        return false;
+      }
       if (amenity !== "all" && !r.amenities.includes(amenity)) return false;
       if (onlyAvailable && !r.available) return false;
       if (r.price > maxPrice) return false;
