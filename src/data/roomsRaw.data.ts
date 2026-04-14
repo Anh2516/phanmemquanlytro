@@ -11,7 +11,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://lh3.googleusercontent.com/rd-d/ALs6j_HDn_rgh1bsciiYpGd3i9oFebcHtOS6GM-AXxP0-cU1JY3rB5h6geOJB8OCBpEm5usP3oU_XznLLSSkr7tv1FUTOHVrLyeL_wK7o0wJHixQgfKOl2HYgIcix8dUXlEcqCyMnHW7lcwJI-ukVVnxAxzVk0Zi7L2tQCbHTHPPt0_SP7MkFOlrp_ep91tAzmGsc-lTy-StJ7y43UFknzHVDbhMY9vY3nnt1UheUmJagbpwk7f-ZSogrsw4GCMqup6Ww240UP2pXHH3-9MBOISFVb4dhBBAXsBjGMWd5RZev0qFSSBJT2Q5r14K9R6A5Y4vNgLNo-qtPr1q78LzrvqT6YY_fmm6iqque0O4AkGnL45Lhnt41uC3kXNMK10JTnleVJAeTFlN5APpNpVfFTL5d-RZjcsdxnHXI86eoGIz3gl9mK4-qctlo1amBviXrJF3JFKTyqS7zJgDiiaxME3RWuA9GboZBGiw4NEvO7ZeZrLaAknsB9qw0PKxQrH4il0-szEKP1-BvLyXzWC2x4oBOX-FqAhJOQNqRdxD-7H5zejI8Tj9ZLOfHo9Tk77mBm-ULuPHpBssjNqqLT8lb4zTwfTRPXBsuyro0dpjkvJgCX6PwLz5cCBPkOCHjHUJ7vVSbtI28MF_ZD6Ga-hnKpikMFx6OBV6vm0xWWeJowDqgCDYUZ0HFBc8WDL1AsM9IYN-fZNFCKMaOW3xPWdc7ehCDvbGKgXbuPm3-Xtfr_w1qh4SjMEIXmg162-oSA0sJhgke6RcBeC_Hz2ePWfEhBEn5QpWR0p4GD_eRaOA9XsVRvb57eNdUfct1V3UMXjsAa2dCw81zbpiO2j7lZCJhg5zmrNO6OYZvnL6LvsScprMfEBLjwkFvQi-zDvaUKVcSJeycnfcKiKxHVzuCfqZhZUd7csgWtsjFbbJ1Z2I5JaaipsfAQ7PWDY1Shw_89esOjLxLiGHoqlLVbWRg5-VvComYib0q-mCmikCwKwCsjw2C6LFCBp6fsggkmDFeltm73uWaihJDRyU--XrVJckz4KhKdDHgTlnMyAxlPb4Vw8F1GoUpe0N3qd6iMaB7Si51DSE0f_ASbYkFytJamaT7dg9ikM-3SGVjU1ro8LkESXnngZMFASCFcwVVxjOmmgNPfOk1dH8mVu6a3IdFr5uuPRyvEE_=w1920-h877?auditContext=prefetch"
+      "https://lh3.google.com/u/0/d/13QBf0s45HgYEsrlioJ4zLhAnsZgx7PG9=w1910-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Full đồ",
@@ -52,7 +52,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngõ 165 Xuân Thủy"
+    "mapSearchQuery": "Ngõ 165 Xuân Thủy",
+    "landlordId": "ld-001"
   },
   {
     "id": "pt-002",
@@ -64,8 +65,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80",
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1MosTYQaW-vmBjDlYpwimcXs8rCBr9CN4=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Gác lửng",
@@ -122,8 +122,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1bJAqUgGwAp9nx12YdjpMhbamDqz7tIBx=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Giường + nệm",
@@ -180,8 +179,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 6,
     "available": false,
     "images": [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1g3-L-DBSaxvSI0C173WnKSLi0Kca9B2A=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "thang máy"
@@ -234,8 +232,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=1200&q=80",
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1UmHcstDZmeCnlGDPBmy9A3OmpJg3u0tx=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Quạt trần",
@@ -291,8 +288,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1TI6gFDFjTa99WV0sWRJunNC4aMK38hqX=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "WC riêng trong phòng",
@@ -348,8 +344,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1200&q=80",
-      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1qEIotMw35Me1_7210l1dE-IuyooFAFBJ=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Khép kín, full nội thất"
@@ -389,7 +384,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Nhà 37, ngõ 148 Trần Duy Hưng"
+    "mapSearchQuery": "Nhà 37, ngõ 148 Trần Duy Hưng",
+    "landlordId": "ld-007"
   },
   {
     "id": "pt-008",
@@ -401,8 +397,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1200&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1yo3jLFu7BzOd-ugYmrJXYauq58d972PF=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Camera khu",
@@ -445,7 +440,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngõ xe tải 26 Doãn Kế Thiện"
+    "mapSearchQuery": "Ngõ xe tải 26 Doãn Kế Thiện",
+    "landlordId": "ld-008"
   },
   {
     "id": "pt-009",
@@ -457,8 +453,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=1200&q=80",
-      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1AofO5n8QA3KpltwOdNvWqT_reSYzQ88a=w1217-h872-iv2?auditContext=forDisplay"
     ],
     "amenities": [
       "Cửa sổ trời",
@@ -502,7 +497,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngõ 119 Cổ Nhuế"
+    "mapSearchQuery": "Ngõ 119 Cổ Nhuế",
+    "landlordId": "ld-009"
   },
   {
     "id": "pt-010",
@@ -514,8 +510,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 8,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1G8TX1EqvD32bWpXgYOUG8p5-t2b5ZExr=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "full đồ, gác xép"
@@ -555,7 +550,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "521 Cổ Nhuế"
+    "mapSearchQuery": "521 Cổ Nhuế",
+    "landlordId": "ld-010"
   },
   {
     "id": "pt-011",
@@ -567,8 +563,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&q=80",
-      "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1bRmUwT8otXJ3b5OBNCExbAtdd8CT8Xzs=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Quạt",
@@ -611,7 +606,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "59 Phạm Văn Đồng"
+    "mapSearchQuery": "59 Phạm Văn Đồng",
+    "landlordId": "ld-011"
   },
   {
     "id": "pt-012",
@@ -623,8 +619,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": false,
     "images": [
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1pjfiBh5-UV4UKbng7CDLKXcQaYkZCPh3=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "bếp + WC riêng"
@@ -664,7 +659,8 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngõ 195 Trần Cung"
+    "mapSearchQuery": "Ngõ 195 Trần Cung",
+    "landlordId": "ld-012"
   },
   {
     "id": "pt-013",
@@ -676,8 +672,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 2,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80",
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1rCzTMMHhtP5Hd19ZDGGN_ieZSh7-b037=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Điều hòa",
@@ -720,67 +715,11 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngõ 59 Mễ Trì"
+    "mapSearchQuery": "Ngõ 59 Mễ Trì",
+    "landlordId": "ld-013"
   },
   {
     "id": "pt-014",
-    "title": "Ngõ 116 Miếu Đầm",
-    "district": "Nam Từ Liêm",
-    "address": "Ngõ 116 Miếu Đầm",
-    "price": 4800000,
-    "area": 30,
-    "floor": 3,
-    "available": true,
-    "images": [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80"
-    ],
-    "amenities": [
-      "Điều hòa",
-      "Bàn học",
-      "Wifi",
-      "Máy giặt",
-      "Thang máy"
-    ],
-    "description": "Đông sinh viên, an ninh tốt.Gần Mỹ Đình, Landmark 72",
-    "contact": {
-      "phone": "0902 345 678",
-      "zalo": "0902345678"
-    },
-    "costBreakdown": {
-      "electricity": "3.800đ/kWh",
-      "water": "100.000đ/người",
-      "internet": "100.000đ/phòng",
-      "parking": "100.000đ/xe",
-      "other": "Rác + vệ sinh: 50.000đ/tháng",
-      "depositMonths": 1
-    },
-    "rentalConditions": [
-      "Hợp đồng tối thiểu 6 tháng.",
-      "Báo trước 30 ngày nếu trả phòng.",
-      "Không gây ồn sau 22:00."
-    ],
-    "reviews": [
-      {
-        "author": "Người thuê cũ",
-        "rating": 4,
-        "comment": "Phòng đúng mô tả, chủ trọ phản hồi nhanh khi cần hỗ trợ."
-      },
-      {
-        "author": "Sinh viên năm 2",
-        "rating": 5,
-        "comment": "Khu vực khá yên tĩnh buổi tối, đi lại thuận tiện vào giờ cao điểm."
-      },
-      {
-        "author": "Nhân viên văn phòng",
-        "rating": 5,
-        "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
-      }
-    ],
-    "mapSearchQuery": "Ngõ 116 Miếu Đầm"
-  },
-  {
-    "id": "pt-015",
     "title": "Phú Đô - Mỹ Đình",
     "district": "Nam Từ Liêm",
     "address": "Phú Đô - Mỹ Đình",
@@ -789,8 +728,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1p3KuHGUEXJMog2Z0QhXC3_kvN8Lvgifj=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Sân vườn chung",
@@ -833,10 +771,11 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Phú Đô - Mỹ Đình"
+    "mapSearchQuery": "Phú Đô - Mỹ Đình",
+    "landlordId": "ld-014"
   },
   {
-    "id": "pt-016",
+    "id": "pt-015",
     "title": "Ngách 208 ngõ 8 Lê Quang Đạo",
     "district": "Nam Từ Liêm",
     "address": "Ngách 208 ngõ 8 Lê Quang Đạo",
@@ -845,8 +784,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 1,
     "available": true,
     "images": [
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&q=80",
-      "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=1200&q=80"
+      "https://lh3.google.com/u/0/d/1N0rYwsXWgoI6b4zFw9RQiCQnj57PA-0u=w1217-h872-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Khép kín"
@@ -886,6 +824,7 @@ export const rawRooms: RawRoom[] = [
         "comment": "Chi phí phát sinh rõ ràng, không bị thu thêm ngoài thỏa thuận."
       }
     ],
-    "mapSearchQuery": "Ngách 208 ngõ 8 Lê Quang Đạo"
+    "mapSearchQuery": "Ngách 208 ngõ 8 Lê Quang Đạo",
+    "landlordId": "ld-015"
   }
 ];
