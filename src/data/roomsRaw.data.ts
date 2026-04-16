@@ -11,7 +11,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/13QBf0s45HgYEsrlioJ4zLhAnsZgx7PG9=w1910-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/13QBf0s45HgYEsrlioJ4zLhAnsZgx7PG9=w2000-h2490-iv2?auditContext=forDisplay"
     ],
     "amenities": [
       "Full đồ",
@@ -65,7 +65,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1MosTYQaW-vmBjDlYpwimcXs8rCBr9CN4=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1MosTYQaW-vmBjDlYpwimcXs8rCBr9CN4=w1920-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Gác lửng",
@@ -122,7 +122,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1bJAqUgGwAp9nx12YdjpMhbamDqz7tIBx=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1bJAqUgGwAp9nx12YdjpMhbamDqz7tIBx=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Giường + nệm",
@@ -179,7 +179,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 6,
     "available": false,
     "images": [
-      "https://lh3.google.com/u/0/d/1g3-L-DBSaxvSI0C173WnKSLi0Kca9B2A=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1g3-L-DBSaxvSI0C173WnKSLi0Kca9B2A=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "thang máy"
@@ -232,7 +232,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1UmHcstDZmeCnlGDPBmy9A3OmpJg3u0tx=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1UmHcstDZmeCnlGDPBmy9A3OmpJg3u0tx=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Quạt trần",
@@ -288,7 +288,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1TI6gFDFjTa99WV0sWRJunNC4aMK38hqX=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1TI6gFDFjTa99WV0sWRJunNC4aMK38hqX=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "WC riêng trong phòng",
@@ -344,7 +344,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1qEIotMw35Me1_7210l1dE-IuyooFAFBJ=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1qEIotMw35Me1_7210l1dE-IuyooFAFBJ=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Khép kín, full nội thất"
@@ -397,7 +397,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 5,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1yo3jLFu7BzOd-ugYmrJXYauq58d972PF=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1yo3jLFu7BzOd-ugYmrJXYauq58d972PF=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Camera khu",
@@ -453,7 +453,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1AofO5n8QA3KpltwOdNvWqT_reSYzQ88a=w1217-h872-iv2?auditContext=forDisplay"
+      "https://lh3.googleusercontent.com/u/0/d/1AofO5n8QA3KpltwOdNvWqT_reSYzQ88a=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Cửa sổ trời",
@@ -510,7 +510,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 8,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1G8TX1EqvD32bWpXgYOUG8p5-t2b5ZExr=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1G8TX1EqvD32bWpXgYOUG8p5-t2b5ZExr=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "full đồ, gác xép"
@@ -563,7 +563,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 4,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1bRmUwT8otXJ3b5OBNCExbAtdd8CT8Xzs=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1bRmUwT8otXJ3b5OBNCExbAtdd8CT8Xzs=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Quạt",
@@ -619,7 +619,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": false,
     "images": [
-      "https://lh3.google.com/u/0/d/1pjfiBh5-UV4UKbng7CDLKXcQaYkZCPh3=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1pjfiBh5-UV4UKbng7CDLKXcQaYkZCPh3=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "bếp + WC riêng"
@@ -672,7 +672,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 2,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1rCzTMMHhtP5Hd19ZDGGN_ieZSh7-b037=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1rCzTMMHhtP5Hd19ZDGGN_ieZSh7-b037=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Điều hòa",
@@ -728,7 +728,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 3,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1p3KuHGUEXJMog2Z0QhXC3_kvN8Lvgifj=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1p3KuHGUEXJMog2Z0QhXC3_kvN8Lvgifj=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Sân vườn chung",
@@ -784,7 +784,7 @@ export const rawRooms: RawRoom[] = [
     "floor": 1,
     "available": true,
     "images": [
-      "https://lh3.google.com/u/0/d/1N0rYwsXWgoI6b4zFw9RQiCQnj57PA-0u=w1217-h872-iv2?auditContext=prefetch"
+      "https://lh3.googleusercontent.com/u/0/d/1N0rYwsXWgoI6b4zFw9RQiCQnj57PA-0u=w1260-h877-iv2?auditContext=prefetch"
     ],
     "amenities": [
       "Khép kín"
