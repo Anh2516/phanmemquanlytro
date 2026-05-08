@@ -8,7 +8,7 @@ export function MainLayout() {
       <Outlet />
       <footer
         id="about"
-        className="mt-12 bg-[#0b4f8a] text-white"
+        className="mt-12 bg-[#138f89] text-white"
       >
         <div className="w-full px-4 py-8 text-left text-sm leading-7 sm:px-8 lg:px-12">
           <p className="text-base font-semibold">
