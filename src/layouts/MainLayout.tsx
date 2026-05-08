@@ -1,26 +1,26 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
-import { useLanguage } from "../i18n/LanguageContext";
 
 export function MainLayout() {
-  const { language } = useLanguage();
-  const isEn = language === "en";
-
   return (
     <div className="min-h-screen bg-surface-50 text-slate-900">
       <Header />
       <Outlet />
       <footer
         id="about"
-        className="border-t border-slate-200 bg-white py-12 text-center text-sm text-slate-500"
+        className="mt-12 bg-[#0b4f8a] text-white"
       >
-        <p className="font-display text-slate-800">
-          {isEn ? "TroHom — room rental demo" : "TroHom — demo cho thuê phòng trọ"}
-        </p>
-        <p className="mt-2">
-          UI: Tailwind CSS · Animation: Framer Motion · Radix UI · Lucide ·
-          React Router
-        </p>
+        <div className="w-full px-4 py-8 text-left text-sm leading-7 sm:px-8 lg:px-12">
+          <p className="text-base font-semibold">
+            Đại học Quốc gia Hà Nội - Trường Đại học Ngoại ngữ
+          </p>
+          <p>Địa chỉ: Số 2 đường Phạm Văn Đồng, Phường Cầu Giấy, Hà Nội</p>
+          <p>Tel: (+84)0866877379</p>
+          <p>Email: happydeel5706@gmail.com</p>
+          <div className="mt-4 border-t border-white/30 pt-4 text-sm">
+            © Trường Đại học Ngoại ngữ - Đại học Quốc gia Hà Nội
+          </div>
+        </div>
       </footer>
     </div>
   );
