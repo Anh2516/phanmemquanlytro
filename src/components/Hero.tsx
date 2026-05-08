@@ -43,50 +43,74 @@ export function Hero() {
       <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl"
-        >
+        <div className="grid items-center gap-10 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-accent-light backdrop-blur"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl"
           >
-            <Sparkles className="h-3.5 w-3.5" />
-            {isEn ? "Curated rooms — updated weekly" : "Phòng trọ chọn lọc — cập nhật mỗi tuần"}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-accent-light backdrop-blur"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              {isEn ? "Curated rooms — updated weekly" : "Phòng trọ chọn lọc — cập nhật mỗi tuần"}
+            </motion.div>
+            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {isEn ? "Find rooms " : "Tìm phòng trọ "}
+              <span className="bg-gradient-to-r from-accent-light to-teal-200 bg-clip-text text-transparent">
+                {isEn ? "fast & clear" : "nhanh & rõ ràng"}
+              </span>
+            </h1>
+            <p className="mt-5 text-lg text-slate-400 sm:text-xl">
+              {isEn
+                ? "Connect with the right room — filter by area and budget with transparent information."
+                : "Kết nối bạn với phòng trọ phù hợp — lọc theo khu vực và ngân sách, thông tin rõ ràng để bạn an tâm lựa chọn."}
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <motion.a
+                href="#rooms"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-dark px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition"
+              >
+                {isEn ? "View available rooms" : "Xem phòng đang mở"}
+                <ArrowRight className="h-4 w-4" />
+              </motion.a>
+              <Link
+                to="/gioi-thieu"
+                className="text-sm font-semibold text-slate-300 underline-offset-4 transition hover:text-white hover:underline"
+              >
+                {isEn ? "Learn about service" : "Tìm hiểu về dịch vụ"}
+              </Link>
+            </div>
           </motion.div>
-          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            {isEn ? "Find rooms " : "Tìm phòng trọ "}
-            <span className="bg-gradient-to-r from-accent-light to-teal-200 bg-clip-text text-transparent">
-              {isEn ? "fast & clear" : "nhanh & rõ ràng"}
-            </span>
-          </h1>
-          <p className="mt-5 text-lg text-slate-400 sm:text-xl">
-            {isEn
-              ? "Connect with the right room — filter by area and budget with transparent information."
-              : "Kết nối bạn với phòng trọ phù hợp — lọc theo khu vực và ngân sách, thông tin rõ ràng để bạn an tâm lựa chọn."}
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <motion.a
-              href="#rooms"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-dark px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition"
-            >
-              {isEn ? "View available rooms" : "Xem phòng đang mở"}
-              <ArrowRight className="h-4 w-4" />
-            </motion.a>
-            <Link
-              to="/gioi-thieu"
-              className="text-sm font-semibold text-slate-300 underline-offset-4 transition hover:text-white hover:underline"
-            >
-              {isEn ? "Learn about service" : "Tìm hiểu về dịch vụ"}
-            </Link>
-          </div>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:ml-6"
+          >
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-accent-light">
+              Video giới thiệu
+            </p>
+            <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-2xl backdrop-blur">
+            <iframe
+              className="aspect-video w-full"
+              src="https://www.youtube.com/embed/gnZ5xx_6XR0"
+              title="Video giới thiệu"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
